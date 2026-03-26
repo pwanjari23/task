@@ -1,10 +1,15 @@
 import React from "react";
-import Cart from "./Cart";
+import CartPage from "./CartPage";
+import OrdersPage from "./OrdersPage";
 
 function App() {
   return (
     <div>
-      <Cart />
+      <h1>Ecommerce App</h1>
+
+      <CartPage />
+      <hr />
+      <OrdersPage />
     </div>
   );
 }
