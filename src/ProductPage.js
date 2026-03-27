@@ -22,7 +22,7 @@ const ProductPage = () => {
       }),
     });
 
-    navigate("/cart"); 
+    navigate("/cart");
   };
 
   return (
