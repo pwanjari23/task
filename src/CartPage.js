@@ -1,18 +1,17 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const CartPage = () => {
   const [cart, setCart] = useState(null);
+  const userId = "123";
 
-  const userId = "123"; // static for now
-
-  // 👉 Fetch Cart
   const getCart = async () => {
-    const res = await fetch(`http://localhost:5000/api/cart/${userId}`);
+    const res = await fetch(
+      `http://localhost:5000/api/cart/${userId}`
+    );
     const data = await res.json();
     setCart(data);
   };
 
-  // 👉 Place Order
   const handleOrder = async () => {
     const res = await fetch("http://localhost:5000/api/order", {
       method: "POST",
@@ -25,7 +24,7 @@ const CartPage = () => {
     const data = await res.json();
     alert(data.message);
 
-    getCart(); // refresh cart
+    getCart();
   };
 
   useEffect(() => {
@@ -43,16 +42,12 @@ const CartPage = () => {
       ) : (
         <>
           {cart.items.map((item, index) => (
-            <div key={index}>
-              <p>
-                {item.name} - ₹{item.price} x {item.quantity}
-              </p>
-            </div>
+            <p key={index}>
+              {item.name} - ₹{item.price} x {item.quantity}
+            </p>
           ))}
 
-          <button onClick={handleOrder}>
-            Place Order
-          </button>
+          <button onClick={handleOrder}>Place Order</button>
         </>
       )}
     </div>

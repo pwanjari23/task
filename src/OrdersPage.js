@@ -1,11 +1,9 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const OrdersPage = () => {
   const [orders, setOrders] = useState([]);
-
   const userId = "123";
 
-  // 👉 Fetch Orders
   const fetchOrders = async () => {
     const res = await fetch(
       `http://localhost:5000/api/orders/${userId}`
@@ -26,7 +24,7 @@ const OrdersPage = () => {
         <p>No orders yet</p>
       ) : (
         orders.map((order) => (
-          <div key={order._id} style={{ border: "1px solid black", margin: "10px", padding: "10px" }}>
+          <div key={order._id}>
             <h3>Total: ₹{order.totalAmount}</h3>
 
             {order.items.map((item, index) => (

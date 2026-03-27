@@ -9,7 +9,7 @@ const Cart = () => {
     ],
   });
 
-  // 🔥 DELETE FUNCTION
+  
   const deleteFromCart = (productId) => {
     const updatedCart = user.cart.filter(
       (item) => item.id !== productId
